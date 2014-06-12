@@ -575,9 +575,9 @@
     }
     else
     {
-        _contentView.layer.shadowOpacity = 0.7;
-        _contentView.layer.shadowRadius = 5;
-        _contentView.layer.shadowOffset = CGSizeMake(-3, 3);
+        _contentView.layer.shadowOpacity = 0.25;
+        _contentView.layer.shadowRadius = 3;
+        _contentView.layer.shadowOffset = CGSizeMake(0, 2);
         _contentView.layer.shadowColor = _shadowColor;
         if(_shadowColor)
         {

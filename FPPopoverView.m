@@ -56,10 +56,6 @@
         //we need to set the background as clear to see the view below
         self.backgroundColor = [UIColor clearColor];
         self.clipsToBounds = YES;
-        
-        self.layer.shadowOpacity = 0.7;
-        self.layer.shadowRadius = 5;
-        self.layer.shadowOffset = CGSizeMake(-3, 3);
 
         //to get working the animations
         self.contentMode = UIViewContentModeRedraw;
@@ -341,6 +337,14 @@
         colors[0] = colors[1] = colors[2] = 1.0;
         colors[3] = colors[7] = 1.0;
     }
+    else if (self.tint == FPPopoverContentViewBackgroundColorTint) {
+        
+        UIColor* color = [_contentView backgroundColor];
+        const CGFloat* components = CGColorGetComponents(color.CGColor);
+        colors[0] = colors[1] = colors[2] = components[0];
+        colors[0] = colors[1] = colors[2] = components[1];
+        colors[3] = colors[7] = components[2];
+    }
     
 
     CGGradientRef gradient = CGGradientCreateWithColorComponents(colorSpace, colors, NULL, 2);
@@ -408,6 +412,10 @@
     else if(self.tint == FPPopoverWhiteTint)
     {
         CGContextSetRGBFillColor(ctx, 1, 1, 1, 1.0);
+    }
+    else if (self.tint == FPPopoverContentViewBackgroundColorTint)
+    {
+        CGContextSetFillColorWithColor(ctx, _contentView.backgroundColor.CGColor);
     }
 
     
