@@ -341,9 +341,15 @@
         
         UIColor* color = [_contentView backgroundColor];
         const CGFloat* components = CGColorGetComponents(color.CGColor);
-        colors[0] = colors[1] = colors[2] = components[0];
-        colors[0] = colors[1] = colors[2] = components[1];
-        colors[3] = colors[7] = components[2];
+        
+        colors[0] = colors[4] = components[0];
+        colors[1] = colors[5] = components[1];
+        colors[2] = colors[6] = components[2];
+        colors[3] = colors[7] = components[3];
+        
+        //colors[0] = colors[1] = colors[2] = components[0];
+        //colors[0] = colors[1] = colors[2] = components[1];
+        //colors[3] = colors[7] = components[2];
     }
     
 
